@@ -15,14 +15,9 @@ pool:
   vmImage: $(imageName)
 
 steps:
-- task: ExtractFiles@1
-  inputs:
-    archiveFilePatterns: '*.zip'
-    destinationFolder: '$(Build.SourcesDirectory)'
-    cleanDestinationFolder: false
 - task: Maven@3
   inputs:
-    mavenPomFile: "$(System.DefaultWorkingDirectory)/{zip file name}/jmlp1.pipelines-dotnet-core/pom.xml"
+    mavenPomFile: "/jmlp1.pipelines-dotnet-core/pom.xml"
     mavenOptions: "-Xmx3072m"
     javaHomeOption: "JDKVersion"
     jdkVersionOption: $(jdkVersion)
